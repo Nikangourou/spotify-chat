@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <title>Chat</title>
+  </head>
+  <body>
+    <section class="section_login">
+      <div class="container">
+        <h1>Entre ton nom d’artiste</h1>
+        <div class="container_cover">
+          <form class="form_rename">
+            <input
+              required
+              type="text"
+              name="name"
+              placeholder="Écris ici..."
+              minlength="3"
+            />
+          </form>
+          <img src="./assets/images/cover.png" />
+        </div>
+        <button class="button_rename" disabled>
+          <i class="fas fa-play"></i>
+        </button>
+      </div>
+    </section>
+    <section class="section_users">
+      <div class="bg"></div>
+      <button class="button_retour retourToHome">
+        <i class="fa-solid fa-chevron-left"></i><span>Retour</span>
+      </button>
+      <div class="container">
+        <img class="cover" src="./assets/images/cover2.png" alt="cover" />
+        <p class="room-name">Serveur BDDI</p>
+        <ul class="users-liste"></ul>
+      </div>
+      <button class="button_chat">Lancer la playlist</button>
+    </section>
+    <section class="section_chat">
+      <div>
+        <button class="button_retour retourToUser">
+          <i class="fa-solid fa-chevron-left"></i><span>Retour</span>
+        </button>
+        <video class="video" autoplay playsinline>
+          <source
+            src="./assets/videos/BillieEilish-badguy.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div class="video-controls">
+          <div class="controls">
+            <div>
+              <p class="name">Song</p>
+              <p class="artiste">Artiste . Album</p>
+            </div>
+            <div>
+              <!-- previous song -->
+              <button class="previous">
+                <i class="fas fa-step-backward"></i>
+              </button>
+              <!-- play/pause -->
+              <button id="playpause" type="button" data-state="play">
+                <i class="fas fa-play play"></i>
+                <i class="fas fa-pause pause"></i>
+              </button>
+              <!-- next song -->
+              <button class="next">
+                <i class="fas fa-step-forward"></i>
+              </button>
+            </div>
+          </div>
+          <div class="progress">
+            <progress id="progress" value="0" min="0" max="100">
+              <span id="progress-bar"></span>
+            </progress>
+          </div>
+        </div>
+      </div>
+      <div class="container_chat">
+        <div class="container_chat_header">
+          <button class="btnOpenChat">
+            Ouvre La clubroom<i class="fas fa-expand-alt"></i>
+          </button>
+          <button class="btnCloseChat">
+            <i class="fas fa-compress-alt"></i>
+          </button>
+        </div>
+        <ul class="message-liste"></ul>
+        <form class="form_send-message">
+          <button class="btn-audio">
+            <i class="fa-solid fa-microphone"></i>
+          </button>
+          <input required type="text" name="message" />
+          <button class="btn-send" type="submit">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+    <script
+      src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+      integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="./script.js"></script>
+  </body>
+</html>

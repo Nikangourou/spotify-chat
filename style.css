@@ -1,0 +1,444 @@
+@font-face {
+  font-family: "GothamBold";
+  src: url("./assets/fonts/Gotham-Bold.otf") format("OpenType");
+}
+
+@font-face {
+  font-family: "GothamLight";
+  src: url("./assets/fonts/Gotham-Light.otf") format("OpenType");
+}
+
+@font-face {
+  font-family: "GothamBook";
+  src: url("./assets/fonts/Gotham-Book.otf") format("OpenType");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+h1 {
+  font-family: "GothamBold";
+  font-size: 40px;
+}
+
+/* Page login */
+
+.section_login {
+  background-image: url("./assets/images/bg.svg");
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  width: 317px;
+}
+
+.container_cover {
+  position: relative;
+}
+
+.container_cover form {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.container_cover form input {
+  border: 2px solid #3dbd67;
+  border-radius: 25px;
+  padding: 15px 10px;
+  width: 200px;
+  font-family: "GothamLight";
+  font-size: 16px;
+}
+
+.section_login button {
+  background-color: black;
+  color: #3dbd67;
+  display: block;
+  font-size: 35px;
+  border: none;
+  margin: auto;
+  margin-top: 50px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.section_login button[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.section_login button:not([disabled]):hover {
+  background-color: white;
+  color: black;
+}
+
+.section_login button i {
+  margin-left: 5px;
+}
+
+/* Page users */
+
+.section_users {
+  background-color: black;
+  top: 100vh;
+  transition: 0.5s;
+  transition-property: transform;
+  overflow: hidden;
+}
+
+.section_users .bg {
+  background-image: linear-gradient(180deg, black 0, #2d46b9 50%, black 100%);
+  opacity: 30%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 350px;
+  z-index: 1;
+}
+
+.section_users.active {
+  transform: translateY(-100vh);
+}
+
+.section_users .container {
+  width: 90%;
+  height: 100%;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.section_users .container .cover {
+  display: block;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.section_users .room-name {
+  position: sticky;
+  top: 50px;
+  color: white;
+  text-align: center;
+  font-family: "GothamBold";
+  font-size: 24px;
+  z-index: 2;
+}
+
+.section_users ul {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  padding: 0 20px;
+}
+
+.section_users li {
+  list-style: none;
+  color: white;
+  font-size: 16px;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid white;
+  font-family: "GothamBook";
+  display: flex;
+  justify-content: space-between;
+}
+
+.section_users li p {
+  margin: 0 20px;
+}
+
+.section_users li i {
+  margin: 0 20px;
+  cursor: pointer;
+}
+
+.fa-solid.fa-heart {
+  color: #3dbd67;
+}
+
+.button_retour {
+  position: absolute;
+  top: 53px;
+  left: 20px;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  font-family: "GothamBold";
+  font-size: 18px;
+  border: none;
+  display: flex;
+  align-items: baseline;
+  z-index: 3;
+}
+
+.button_retour.litle span {
+  display: none;
+}
+
+.button_retour i {
+  margin-right: 5px;
+}
+
+.button_chat {
+  background-color: #3dbd67;
+  color: white;
+  position: fixed;
+  bottom: 30px;
+  width: 200px;
+  border-radius: 22px;
+  padding: 10px 20px;
+  border: none;
+  font-family: "GothamBold";
+  font-size: 16px;
+  cursor: pointer;
+  display: none;
+}
+
+.section_users.active .button_chat {
+  display: block;
+}
+
+/* Page chats */
+
+.section_chat {
+  background-color: black;
+  top: 100vh;
+  transition: 0.5s;
+  transition-property: transform;
+}
+
+.section_chat.active {
+  transform: translateY(-100vh);
+}
+
+.video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-controls {
+  color: white;
+  position: absolute;
+  bottom: 14vh;
+  left: 50%;
+  width: 90%;
+  transform: translateX(-50%);
+  transition: 0.5s;
+}
+
+.video-controls.up {
+  bottom: 87vh;
+}
+
+.video-controls button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.video-controls button .pause {
+  display: none;
+}
+
+.video-controls .controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.video-controls .name {
+  font-family: "GothamBold";
+  font-size: 20px;
+  margin-top: 0;
+}
+
+.video-controls .artiste {
+  font-family: "GothamBook";
+  font-size: 14px;
+}
+
+.video-controls .progress {
+  position: relative;
+}
+
+.video-controls .progress progress {
+  cursor: pointer;
+  width: 100%;
+}
+
+.container_chat {
+  width: calc(100% - 100px);
+  height: 80vh;
+  padding: 0 50px 50px;
+  background-color: #3dbd67;
+  border-radius: 24px 24px 0 0;
+  bottom: 0;
+  position: absolute;
+  transition: 0.5s;
+  top: 89vh;
+}
+
+.container_chat.active {
+  top: calc(20vh - 50px);
+}
+
+.retourToUser.disabled {
+  display: none;
+}
+
+.container_chat_header {
+  background-image: linear-gradient(#3dbd67 0, #3dbd67 40%, transparent 100%);
+  border-radius: 24px 24px 0 0;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3dbd67;
+}
+
+.container_chat.active .container_chat_header {
+  background-color: transparent;
+}
+
+.btnOpenChat {
+  border: none;
+  background-color: black;
+  color: white;
+  font-family: "GothamBold";
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 23px;
+  cursor: pointer;
+}
+
+.btnOpenChat i {
+  margin-left: 10px;
+}
+
+.btnCloseChat {
+  border: none;
+  background-color: black;
+  color: white;
+  font-family: "GothamBold";
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 23px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: none;
+}
+
+.container_chat.active .btnCloseChat {
+  display: block;
+}
+
+.container_chat.active .btnOpenChat {
+  display: none;
+}
+
+.message-liste {
+  padding: 0;
+  height: 90%;
+  overflow-y: scroll;
+}
+
+.message-liste audio {
+  width: 200px;
+}
+
+.message-liste li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-family: "GothamBook";
+  font-size: 14px;
+}
+
+.message-liste li.me {
+  justify-content: flex-end;
+}
+
+.container_msg_name {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
+}
+
+.msg {
+  font-family: "GothamBold";
+  font-size: 20px;
+}
+
+.date {
+  font-size: 14px;
+}
+
+.form_send-message {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  width: 80%;
+  max-width: 400px;
+  height: 45px;
+}
+
+.form_send-message input {
+  padding: 7px 3px;
+  border: none;
+  width: 80%;
+}
+
+.form_send-message input:focus-visible {
+  outline: none;
+}
+
+.form_send-message button {
+  border: none;
+  width: 10%;
+  cursor: pointer;
+  background-color: white;
+}
+
+.btn-audio {
+  border-radius: 23px 0 0 23px;
+}
+
+.btn-send {
+  border-radius: 0 23px 23px 0;
+}
